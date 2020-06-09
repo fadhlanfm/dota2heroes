@@ -8,7 +8,7 @@ import HeroCard from './components/HeroCard'
 function App() {
   return(
     <div className="App">
-      <Head/>
+      <Head title="Dota 2 Heroes"/>
       <HeroCard/>
     </div>
   );
