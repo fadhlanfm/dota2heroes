@@ -1,15 +1,25 @@
 import React from 'react';
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css';
-import Head from './components/Head'
+import Title from './components/Title'
 import HeroCard from './components/HeroCard'
+import HeroDetail from './components/HeroDetail'
 
 function App() {
   return (
-    <div className="App">
-      <Head title={'Dota 2 Heroes'}/>
-      <HeroCard/>
-    </div>
+    <Router>
+      <div className="App">
+        <Switch>
+          <Route exact path="/">
+            <Title title={'Dota 2 Heroes'}/>
+            <HeroCard/>
+          </Route>
+          <Route path="/:id">
+            <HeroDetail />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
