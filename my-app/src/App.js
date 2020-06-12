@@ -1,25 +1,29 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Provider } from 'react-redux'
 import './App.css';
-import Title from './components/Title'
-import HeroCard from './components/HeroCard'
-import HeroDetail from './components/HeroDetail'
+import { HeroesTable, HeroDetail } from './pages';
+// import HeroTable from './pages/HeroesTable'
+// import FavoriteHeroesTable from './pages/FavoriteHeroesTable'
+// import HeroDetail from './pages/HeroDetail'
+import Navbar from './components/Navbar'
+import store from './store'
 
 function App() {
   return (
-    <Router>
-      <div className="App">
-        <Switch>
-          <Route exact path="/">
-            <Title title={'Dota 2 Heroes'}/>
-            <HeroCard/>
-          </Route>
-          <Route path="/:id">
-            <HeroDetail />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+    <Provider store={store}>
+      <Router>
+        <div className="App">
+          <Navbar />
+          <Switch>
+            <Route exact path="/" component={ HeroesTable }></Route>
+            <Route path="/:id">
+              <HeroDetail />
+            </Route>
+          </Switch>
+        </div>
+      </Router>
+    </Provider>
   );
 }
 
