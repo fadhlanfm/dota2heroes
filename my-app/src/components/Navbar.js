@@ -16,8 +16,7 @@ export default (props) => {
           <Nav.Link href="/">Heroes</Nav.Link>
         </Nav>
         <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-success">Search</Button>
+          <FormControl type="text" placeholder="Search" className="mr-sm-2" onChange/>
         </Form>
       </Navbar.Collapse>
     </Navbar>
